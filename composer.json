@@ -1,0 +1,101 @@
+{
+    "name": "ernestdefoe/spoiler-shield",
+    "description": "Spoiler Shield: discussions and posts gated to each member's progress through a book, show or game. Members say where they're up to, anything further ahead is blurred until they reach it or tap to reveal, and the hidden words never leave the server. Works with Marquee episodes, Anthology reading progress and Curio collections.",
+    "keywords": [
+        "flarum",
+        "flarum-extension",
+        "spoilers",
+        "spoiler",
+        "tv",
+        "books",
+        "games",
+        "community"
+    ],
+    "type": "flarum-extension",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ernest Defoe",
+            "email": "ernestdefoe@gmail.com"
+        }
+    ],
+    "homepage": "https://github.com/ernestdefoe/spoiler-shield",
+    "support": {
+        "issues": "https://github.com/ernestdefoe/spoiler-shield/issues",
+        "source": "https://github.com/ernestdefoe/spoiler-shield"
+    },
+    "funding": [
+        {
+            "type": "other",
+            "url": "https://buymeacoffee.com/ernestdefoe"
+        }
+    ],
+    "require": {
+        "php": "^8.3",
+        "flarum/core": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "ErnestDefoe\\SpoilerShield\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "ErnestDefoe\\SpoilerShield\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "flarum-extension": {
+            "title": "Spoiler Shield",
+            "category": "feature",
+            "icon": {
+                "name": "fas fa-user-secret",
+                "backgroundColor": "#334155",
+                "color": "#fff"
+            },
+            "optional-dependencies": [
+                "flarum/tags",
+                "flarum/mentions",
+                "ernestdefoe/marquee",
+                "ernestdefoe/anthology",
+                "ernestdefoe/curio",
+                "ernestdefoe/panels",
+                "flarum/realtime",
+                "flarum/gdpr",
+                "fof/split"
+            ]
+        }
+    },
+    "require-dev": {
+        "ernestdefoe/anthology": "^1.0",
+        "ernestdefoe/curio": "^1.0",
+        "ernestdefoe/marquee": "^1.0",
+        "ernestdefoe/panels": "^1.0",
+        "flarum/gdpr": "^2.0",
+        "flarum/mentions": "^2.0",
+        "flarum/phpstan": "^2.0",
+        "flarum/realtime": "^2.0",
+        "flarum/tags": "^2.0",
+        "flarum/testing": "^2.0",
+        "fof/split": "^2.0"
+    },
+    "scripts": {
+        "test": [
+            "@test:integration"
+        ],
+        "test:integration": "phpunit -c tests/phpunit.integration.xml",
+        "test:setup": "@php tests/integration/setup.php",
+        "analyse:phpstan": "phpstan analyse"
+    },
+    "scripts-descriptions": {
+        "test": "Runs all tests.",
+        "test:integration": "Runs all integration tests.",
+        "test:setup": "Sets up a database for use with integration tests. Execute this only once.",
+        "analyse:phpstan": "Run static analysis"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "beta",
+    "prefer-stable": true
+}

@@ -1,0 +1,18 @@
+includes:
+    - vendor/flarum/phpstan/extension.neon
+
+parameters:
+    # One process: flarum/phpstan's bootstrap installs a test forum the first
+    # time it runs, and parallel workers each start that install at once on a
+    # fresh checkout (CI), failing with Install\StepFailed.
+    parallel:
+        maximumNumberOfProcesses: 1
+    level: 6
+    paths:
+        - extend.php
+        - src
+    databaseMigrationsPath: [migrations]
+    # The spoiler_* columns this extension adds to core's discussions and posts tables
+    # (migration 2026_11_10_200002): core's models can't declare them.
+    ignoreErrors:
+        - '#^Access to an undefined property Flarum\\(Discussion\\Discussion|Post\\(Comment)?Post)::\$spoiler_(work|position|label)\.$#'
